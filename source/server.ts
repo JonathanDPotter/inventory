@@ -3,10 +3,21 @@ import express from "express";
 import bodyParser from "body-parser";
 import logging from "./config/logging";
 import config from "./config/config";
-import sampleRoutes from "./routes/sample"
+import bookRoutes from "./routes/book";
+import mongoose from "mongoose";
 
 const NAMESPACE = "Server";
 const router = express();
+
+// connect to mongo
+mongoose
+  .connect(config.mongo.url, config.mongo.options)
+  .then((res) => {
+    logging.info(NAMESPACE, "Connected to mongoDB!");
+  })
+  .catch((error) => {
+    logging.error(NAMESPACE, error.message, error);
+  });
 
 // logging the request
 router.use((req, res, next) => {
@@ -44,14 +55,14 @@ router.use((req, res, next) => {
 });
 
 // routes
-router.use("/sample", sampleRoutes);
+router.use("/api/books", bookRoutes);
 
 // error handling
 router.use((req, res, next) => {
   const error = new Error("not found");
 
   return res.status(404).json({
-    mesage: error.message,
+    message: error.message,
   });
 });
 
