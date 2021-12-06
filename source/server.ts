@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import logging from "./config/logging";
 import config from "./config/config";
-import bookRoutes from "./routes/book";
+import skuRoutes from "./routes/sku";
 import mongoose from "mongoose";
 
 const NAMESPACE = "Server";
@@ -55,7 +55,7 @@ router.use((req, res, next) => {
 });
 
 // routes
-router.use("/api/books", bookRoutes);
+router.use("/api/skus", skuRoutes);
 
 // error handling
 router.use((req, res, next) => {
