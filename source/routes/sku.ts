@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post('/create/sku', controller.createSku)
 
-router.get("/get/sku", controller.getAllSkus);
+router.get("/get/skus", controller.getAllSkus);
 
 export = router;

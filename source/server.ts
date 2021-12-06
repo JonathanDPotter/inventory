@@ -1,10 +1,11 @@
 import http from "http";
 import express from "express";
+import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import logging from "./config/logging";
 import config from "./config/config";
 import skuRoutes from "./routes/sku";
-import mongoose from "mongoose";
+import categoryRoutes from "./routes/category";
 
 const NAMESPACE = "Server";
 const router = express();
@@ -56,6 +57,7 @@ router.use((req, res, next) => {
 
 // routes
 router.use("/api/skus", skuRoutes);
+router.use("/api/categories", categoryRoutes);
 
 // error handling
 router.use((req, res, next) => {

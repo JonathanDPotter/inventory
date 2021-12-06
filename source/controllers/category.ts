@@ -1,15 +1,14 @@
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import Sku from "../../models/skus";
+import Category from "../../models/categories";
 
-const NAMESPACE = "Sku Controller";
+const NAMESPACE = "Category Controller";
 
-const createSku = (req: Request, res: Response, next: NextFunction) => {
-  let { category, brand, name, price, description, onHand } = req.body;
+const createCategory = (req: Request, res: Response, next: NextFunction) => {
+  let { brand, name, price, description, onHand } = req.body;
 
-  const sku = new Sku({
+  const category = new Category({
     _id: new mongoose.Types.ObjectId(),
-    category,
     brand,
     name,
     price,
@@ -17,10 +16,10 @@ const createSku = (req: Request, res: Response, next: NextFunction) => {
     onHand,
   });
 
-  return sku
+  return category
     .save()
     .then((result) => {
-      return res.status(201).json({ Sku: result });
+      return res.status(201).json({ Category: result });
     })
     .catch((error) => {
       return res.status(500).json({
@@ -30,12 +29,12 @@ const createSku = (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
-const getAllSkus = (req: Request, res: Response, next: NextFunction) => {
-  Sku.find()
+const getAllCategories = (req: Request, res: Response, next: NextFunction) => {
+  Category.find()
     .exec()
     .then((results) => {
       return res.status(200).json({
-        Skus: results,
+        Categories: results,
         count: results.length,
       });
     })
@@ -44,4 +43,4 @@ const getAllSkus = (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
-export default { getAllSkus, createSku };
+export default { getAllCategories, createCategory };
