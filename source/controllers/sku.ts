@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import mongoose from "mongoose";
+import mongoose, { AnyKeys, ConnectionStates } from "mongoose";
 import Sku from "../../models/skus";
+import IonHandUpdate from "../../interfaces/onHandUpdate";
 
 const NAMESPACE = "Sku Controller";
 
@@ -79,4 +80,17 @@ const getSku = (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
-export default { getAllSkus, getSku, createSku };
+const updateSku = (req: Request, res: Response, next: NextFunction) => {
+  Sku.findByIdAndUpdate(req.body.id, req.body.update)
+    .exec()
+    .then((result) => {
+      return res.status(200).json({
+        sku: result,
+      });
+    })
+    .catch((error) => {
+      message: error.message, error;
+    });
+};
+
+export default { createSku, getAllSkus, getSku, updateSku };
