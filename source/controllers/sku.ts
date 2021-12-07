@@ -66,4 +66,17 @@ const getAllSkus = (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
-export default { getAllSkus, createSku };
+const getSku = (req: Request, res: Response, next: NextFunction) => {
+  Sku.findById(req.body.id)
+    .exec()
+    .then((result) => {
+      return res.status(200).json({
+        sku: result,
+      });
+    })
+    .catch((error) => {
+      message: error.message, error;
+    });
+};
+
+export default { getAllSkus, getSku, createSku };

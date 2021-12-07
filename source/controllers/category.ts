@@ -52,7 +52,7 @@ const getAllCategories = (req: Request, res: Response, next: NextFunction) => {
     .exec()
     .then((results) => {
       return res.status(200).json({
-        Categories: results,
+        categories: results,
         count: results.length,
       });
     })
@@ -61,4 +61,17 @@ const getAllCategories = (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
-export default { getAllCategories, createCategory };
+const getCategory = (req: Request, res: Response, next: NextFunction) => {
+  Category.findById(req.body.id)
+    .exec()
+    .then((result) => {
+      return res.status(200).json({
+        category: result,
+      });
+    })
+    .catch((error) => {
+      message: error.message, error;
+    });
+};
+
+export default { getAllCategories, getCategory, createCategory };

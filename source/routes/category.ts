@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.post("/create/category", controller.createCategory);
 
-router.get("/get/Categories", controller.getAllCategories);
+router.get("/get/categories", controller.getAllCategories);
+
+router.get("/get/category", controller.getCategory);
 
 export = router;

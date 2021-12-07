@@ -7,4 +7,6 @@ router.post('/create/sku', controller.createSku)
 
 router.get("/get/skus", controller.getAllSkus);
 
+router.get("/get/sku", controller.getSku)
+
 export = router;
