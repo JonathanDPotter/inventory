@@ -42,7 +42,7 @@ router.use(bodyParser.json());
 
 // api rules
 router.use((req, res, next) => {
-  res.header("Acces-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Acces-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
