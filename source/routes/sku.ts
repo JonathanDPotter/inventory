@@ -3,12 +3,16 @@ import controller from "../controllers/sku";
 
 const router = express.Router();
 
-router.post("/create/sku", controller.createSku);
+const { createSku, getAllSkus, getSku, updateSku, deleteSku } = controller;
 
-router.post("/update/sku", controller.updateSku)
+router.post("/create/sku", createSku);
 
-router.get("/get/skus", controller.getAllSkus);
+router.get("/get/skus", getAllSkus);
 
-router.get("/get/sku", controller.getSku);
+router.get("/get/sku", getSku);
+
+router.post("/update/sku", updateSku);
+
+router.post("/delete/sku", deleteSku);
 
 export = router;

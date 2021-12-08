@@ -3,10 +3,15 @@ import controller from "../controllers/category";
 
 const router = express.Router();
 
-router.post("/create/category", controller.createCategory);
+const { createCategory, getAllCategories, getCategory, deleteCategory } =
+  controller;
 
-router.get("/get/categories", controller.getAllCategories);
+router.post("/create/category", createCategory);
 
-router.get("/get/category", controller.getCategory);
+router.get("/get/categories", getAllCategories);
+
+router.get("/get/category", getCategory);
+
+router.post("/delete/category", deleteCategory);
 
 export = router;

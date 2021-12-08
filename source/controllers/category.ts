@@ -57,7 +57,10 @@ const getAllCategories = (req: Request, res: Response, next: NextFunction) => {
       });
     })
     .catch((error) => {
-      message: error.message, error;
+      return res.status(500).json({
+        message: error.message,
+        error,
+      });
     });
 };
 
@@ -70,8 +73,54 @@ const getCategory = (req: Request, res: Response, next: NextFunction) => {
       });
     })
     .catch((error) => {
-      message: error.message, error;
+      return res.status(500).json({
+        message: error.message,
+        error,
+      });
     });
 };
 
-export default { getAllCategories, getCategory, createCategory };
+const deleteCategory = (req: Request, res: Response, next: NextFunction) => {
+  const reject = () => {
+    res.setHeader("www-authenticate", "Basic");
+    res.sendStatus(401);
+  };
+
+  const authorization = req.headers.authorization;
+
+  if (!authorization) {
+    return reject();
+  }
+
+  const [username, password] = Buffer.from(
+    authorization.replace("Basic ", ""),
+    "base64"
+  )
+    .toString()
+    .split(":");
+
+  if (!(username === "Jonathan" && password === process.env.AUTHORIZATION)) {
+    return reject();
+  }
+
+  Category.findByIdAndRemove(req.body.id)
+    .exec()
+    .then((result) => {
+      return res.status(200).json({
+        result,
+      });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        message: error.message,
+        error,
+      });
+    });
+};
+
+export default {
+  createCategory,
+  getAllCategories,
+  getCategory,
+  deleteCategory,
+};
