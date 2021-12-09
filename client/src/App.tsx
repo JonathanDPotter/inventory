@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./App.scss"
+import "./App.scss";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   const [skus, setSkus] = useState<any>([]);
@@ -12,11 +13,7 @@ const App = () => {
 
   console.log(skus);
 
-  return (
-    <div>
-      Hello from React.
-    </div>
-  );
+  return <Navbar />;
 };
 
 export default App;
