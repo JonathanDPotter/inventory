@@ -4,6 +4,7 @@
   "description": "Odin Project inventory project",
   "main": "source/server.ts",
   "scripts": {
+    "populate": "node populateDb.ts",
     "client-install": "cd client && npm install",
     "start": "cd source && node server.ts",
     "server": "cd source && nodemon server.ts",
@@ -25,8 +26,7 @@
     "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.14",
-    "multer": "^1.4.4"
+    "mongoose": "^6.0.14"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",

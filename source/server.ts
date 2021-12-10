@@ -49,7 +49,10 @@ router.use((req, res, next) => {
   );
 
   if (req.method == "OPTIONS") {
-    res.header("Acces-Control-Allow-Methods", "GET PATCH DELETE POST PUT");
+    res.header(
+      "Acces-Control-Allow-Methods",
+      "GET PATCH DELETE POST PUT OPTIONS"
+    );
     return res.status(200).json();
   }
   next();
