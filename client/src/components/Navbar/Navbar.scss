@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  height: 5vh;
+  line-height: 5vh;
+  border-bottom: 2px solid black;
+
+  ul {
+    display: flex;
+    width: 50vw;
+    justify-content: space-around;
+    text-align: center;
+    li {
+      display: inline-block;
+    }
+  }
+  .title-container {
+    width: 50vw;
+    text-align: center;
+  }
+  .closed-menu {
+    display: none;
+  }
+  .open-menu {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+}
