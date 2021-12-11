@@ -9,6 +9,8 @@ import Icategory from "./interfaces/category";
 import Isku from "./interfaces/sku";
 // styles
 import "./App.scss";
+// run once to fill database
+// import { fillDatabase } from "./fillDatabase";
 
 const App = () => {
   const [categories, setCategories] = useState<Icategory[] | null>(null);
@@ -18,23 +20,34 @@ const App = () => {
     fetch("/api/categories/get/categories").then((response) => {
       response.json().then((data) => {
         setCategories(data.categories);
-      })
-    })
+      });
+    });
 
     fetch("/api/skus/get/skus").then((response) => {
       response.json().then((data) => {
+        console.log(data);
         setSkus(data.skus);
-      })
+      });
     })
-  }, [])
+    // run once to fill database
+    // fillDatabase();
+  }, []);
 
   return (
     <div>
       <Router>
-        <Navbar categories={categories && categories }/>
+        <Navbar categories={categories && categories} />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/items/:category" element={<ItemPages categories={categories && categories} skus={skus && skus}/>}/>
+          <Route
+            path="/items/:category"
+            element={
+              <ItemPages
+                categories={categories && categories}
+                skus={skus && skus}
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>

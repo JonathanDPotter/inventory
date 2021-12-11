@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import { capitalize } from "../../functions";
+// types
 import Icategory from "../../interfaces/category";
 
 interface Iitems {
@@ -12,22 +14,14 @@ interface IsubmenuProps {
 }
 
 const Submenu: FC<IsubmenuProps> = ({ open, categories, items }) => {
-  const capitalize = (name: String) => {
-    const first = name[0];
-    const rest = name.slice(1);
-    return first.toUpperCase() + rest;
-  };
-
   return (
     <ul className={`sub-menu ${open ? "open" : "closed"}`}>
       {categories &&
         categories.map((category, i) => {
           const { name } = category;
           return (
-            <a href={`/items/${name}`}>
-              <li className="submenu-item" key={i}>
-                {capitalize(name)}
-              </li>
+            <a href={`/items/${name}`} key={i}>
+              <li className="submenu-item">{capitalize(name)}</li>
             </a>
           );
         })}
@@ -35,10 +29,8 @@ const Submenu: FC<IsubmenuProps> = ({ open, categories, items }) => {
         items.map((item, i) => {
           const { text } = item;
           return (
-            <a href={`/contact/${text}`}>
-              <li className="submenu-item" key={i}>
-                {text}
-              </li>
+            <a href={`/contact/${text}`} key={i}>
+              <li className="submenu-item">{text}</li>
             </a>
           );
         })}

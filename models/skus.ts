@@ -3,7 +3,7 @@ import Isku from "../interfaces/sku";
 
 const SkuSchema: Schema = new Schema(
   {
-    category: { type: Schema.Types.ObjectId, ref: "category", required: true },
+    category: { type: String, required: true },
     name: { type: String, required: true },
     price: { type: Number, required: true },
     description: { type: String, required: true },

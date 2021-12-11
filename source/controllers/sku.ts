@@ -20,7 +20,7 @@ const createSku = (req: Request, res: Response, next: NextFunction) => {
   return sku
     .save()
     .then((result) => {
-      return res.status(201).json({ Sku: result });
+      return res.status(201).json({ sku: result });
     })
     .catch((error) => {
       return res.status(500).json({
@@ -35,7 +35,7 @@ const getAllSkus = (req: Request, res: Response, next: NextFunction) => {
     .exec()
     .then((results) => {
       return res.status(200).json({
-        Skus: results,
+        skus: results,
         count: results.length,
       });
     })

@@ -2,7 +2,7 @@ import { Document } from "mongoose";
 import Icategory from "./category";
 
 export default interface Isku extends Document {
-  category: Icategory;
+  category: string;
   name: string;
   description: string;
   price: number;
