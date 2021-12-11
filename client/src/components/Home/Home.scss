@@ -1,0 +1,5 @@
+@use "../../theme";
+
+.home {
+@include theme.flex-column-center;
+}

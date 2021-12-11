@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
-import "./App.scss";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// components
 import Navbar from "./components/Navbar/Navbar";
-import Isku from "./interfaces/sku";
+import Home from "./components/Home/Home";
+// styles
+import "./App.scss";
 
 const App = () => {
-
-  const [skus, setSkus] = useState<Isku[]>([]);
-
-  useEffect(() => {
-    fetch("/api/skus/get/skus").then((res) =>
-      res.json().then((response) => setSkus(response.Skus))
-    );
-  }, []);
-
   return (
     <div>
-      <Navbar />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 };

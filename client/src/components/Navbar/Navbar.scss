@@ -1,28 +1,43 @@
+@use "../../theme";
+
 nav {
   display: flex;
   height: 5vh;
   line-height: 5vh;
   border-bottom: 2px solid black;
+  background-color: theme.$darkBackground;
+  color: theme.$lightText;
 
-  ul {
-    display: flex;
+  .menu-container {
     width: 50vw;
-    justify-content: space-around;
     text-align: center;
-    li {
-      display: inline-block;
+
+    ul {
+      width: 5vw;
+      display: flex;
+      justify-content: space-around;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    .sub-menu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sub-menu.closed {
+      display: none;
+    }
+
+    .open {
+      background-color: darkred;
     }
   }
+
   .title-container {
     width: 50vw;
     text-align: center;
-  }
-  .closed-menu {
-    display: none;
-  }
-  .open-menu {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
   }
 }

@@ -1,0 +1,15 @@
+// colors
+$darkBackground: darkslategrey;
+$lightText: whitesmoke;
+
+// formatting
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column-center {
+  @include flex-center;
+  flex-direction: column;
+}

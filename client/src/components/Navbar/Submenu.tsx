@@ -7,7 +7,7 @@ interface IsubmenuProps {
 
 const Submenu: FC<IsubmenuProps> = ({ open, items }) => {
   return (
-    <ul className={`sub-menu ${open ? "open-menu" : "closed-menu"}`}>
+    <ul className={`sub-menu ${open ? "open" : "closed"}`}>
       {items.map((item, i) => {
         return (
           <li className="submenu-item" key={i}>

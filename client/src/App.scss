@@ -1,6 +1,15 @@
+@use "./theme";
+
 * {
   margin: 0;
   top: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.page {
+  width: 100vw;
+  min-height: 95vh;
+  background-color: theme.$darkBackground;
+  color: theme.$lightText;
 }
