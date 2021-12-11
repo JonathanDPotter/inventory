@@ -5,8 +5,7 @@ interface ImenuProps {
   text: string;
 }
 
-const MenuItem: FC<ImenuProps> = (props) => {
-  const { open, text } = props;
+const MenuItem: FC<ImenuProps> = ({ open, text }) => {
   return <div className={`menu-item ${open ? "open" : "closed"}`}>{text}</div>;
 };
 

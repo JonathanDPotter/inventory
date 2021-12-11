@@ -4,27 +4,36 @@ nav {
   display: flex;
   height: 5vh;
   line-height: 5vh;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid whitesmoke;
   background-color: theme.$darkBackground;
   color: theme.$lightText;
 
   .menu-container {
-    width: 50vw;
+    width: 60vw;
     text-align: center;
 
     ul {
-      width: 5vw;
+      width: 100%;
       display: flex;
       justify-content: space-around;
 
       li {
         list-style: none;
+        width: 33.3%;
       }
     }
 
     .sub-menu {
       display: flex;
       flex-direction: column;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      li {
+        width: 100%;
+        border-top: 1px solid whitesmoke;
+      }
     }
 
     .sub-menu.closed {
@@ -37,7 +46,7 @@ nav {
   }
 
   .title-container {
-    width: 50vw;
+    width: 40vw;
     text-align: center;
   }
 }
