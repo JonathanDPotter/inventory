@@ -13,4 +13,6 @@
   min-height: 95vh;
   background-color: theme.$darkBackground;
   color: theme.$lightText;
+  z-index: 0;
+  border-top: 1px solid whitesmoke;
 }

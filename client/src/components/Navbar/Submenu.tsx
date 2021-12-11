@@ -3,7 +3,6 @@ import Icategory from "../../interfaces/category";
 
 interface Iitems {
   text: string;
-  link: string;
 }
 
 interface IsubmenuProps {
@@ -25,22 +24,29 @@ const Submenu: FC<IsubmenuProps> = ({ open, categories, items }) => {
         categories.map((category, i) => {
           const { name } = category;
           return (
-            <li className="submenu-item" key={i}>
-              {capitalize(name)}
-            </li>
+            <a href={`/items/${name}`}>
+              <li className="submenu-item" key={i}>
+                {capitalize(name)}
+              </li>
+            </a>
           );
         })}
       {items &&
         items.map((item, i) => {
-          const { text, link } = item;
+          const { text } = item;
           return (
-            <a href={link}>
+            <a href={`/contact/${text}`}>
               <li className="submenu-item" key={i}>
                 {text}
               </li>
             </a>
           );
         })}
+      {categories && (
+        <a href="/items/all">
+          <li> All Items</li>
+        </a>
+      )}
     </ul>
   );
 };

@@ -36,10 +36,7 @@ const Navbar: FC<InavbarProps> = (props) => {
             <MenuItem open={submenuTwoOpen} text="Contact" />
             <Submenu
               open={submenuTwoOpen}
-              items={[
-                { text: "Phone", link: "" },
-                { text: "E-mail", link: "" },
-              ]}
+              items={[{ text: "Phone" }, { text: "E-mail" }]}
             />
           </li>
           <li

@@ -4,7 +4,6 @@ nav {
   display: flex;
   height: 5vh;
   line-height: 5vh;
-  border-bottom: 1px solid whitesmoke;
   background-color: theme.$darkBackground;
   color: theme.$lightText;
 
@@ -19,13 +18,17 @@ nav {
 
       li {
         list-style: none;
-        width: 33.3%;
+        width: 20vw;
       }
     }
 
     .sub-menu {
       display: flex;
       flex-direction: column;
+      z-index: 1;
+      position: fixed;
+      top: 5vh;
+      width: 20vw;
       a {
         text-decoration: none;
         color: inherit;
@@ -37,11 +40,16 @@ nav {
     }
 
     .sub-menu.closed {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
     }
 
     .open {
       background-color: darkred;
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s, opacity 0.3s linear;
     }
   }
 
