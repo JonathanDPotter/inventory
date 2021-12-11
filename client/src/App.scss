@@ -5,14 +5,15 @@
   top: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .page {
-  width: 100vw;
-  min-height: 95vh;
   background-color: theme.$darkBackground;
+  max-width: 100vw;
+  min-height: 95vh;
   color: theme.$lightText;
   z-index: 0;
   border-top: 1px solid whitesmoke;
+  padding-bottom: 3rem;
 }

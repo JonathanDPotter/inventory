@@ -1,0 +1,19 @@
+.item-card {
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+  margin-bottom: 3rem;
+
+  img {
+    height: 5rem;
+  }
+
+  .name-description {
+    width: 60vw;
+  }
+
+  .onhand-price {
+    display: flex;
+    flex-direction: column;
+  }
+}

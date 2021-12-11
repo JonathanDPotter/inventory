@@ -4,6 +4,7 @@ import { capitalize } from "../../functions";
 // types
 import Icategory from "../../interfaces/category";
 import Isku from "../../interfaces/sku";
+import ItemCard from "./ItemCard";
 // styles
 import "./ItemPage.scss";
 
@@ -29,11 +30,8 @@ const ItemPages: FC<IitemPagesProps> = ({ categories, skus }) => {
       <h1 className="page-title">{category && capitalize(category)}</h1>
       {currentSkus &&
         currentSkus.map((sku) => {
-          console.log(sku)
           return (
-            <div className="item-contianer" key={sku.id}>
-              <p className="name">{sku.name}</p>
-            </div>
+            <ItemCard sku={sku}/>
           );
         })}
     </div>
