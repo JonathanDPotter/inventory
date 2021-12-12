@@ -1,19 +1,33 @@
-.item-card {
-  display: flex;
-  justify-content: space-around;
-  height: fit-content;
-  margin-bottom: 3rem;
+@use "../../theme";
 
-  img {
-    height: 5rem;
-  }
+.page {
+  background-color: theme.$mainBackground;
+  max-width: 100vw;
+  min-height: 95vh;
+  color: theme.$textColor;
+  z-index: 0;
+  border-top: 1px solid theme.$textColor;
+  padding-bottom: 3rem;
 
-  .name-description {
-    width: 60vw;
-  }
-
-  .onhand-price {
+  .item-card {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    height: fit-content;
+    margin-bottom: 3rem;
+
+    img {
+      object-fit: scale-down;
+      width: 6rem;
+      height: auto;
+    }
+
+    .name-description {
+      width: 60vw;
+    }
+
+    .onhand-price {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

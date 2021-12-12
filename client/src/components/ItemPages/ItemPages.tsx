@@ -21,18 +21,21 @@ const ItemPages: FC<IitemPagesProps> = ({ categories, skus }) => {
   );
 
   useEffect(() => {
-    console.log(skus)
-    setCurrentSkus(skus?.filter((sku) => sku.category === current?.name));
+    if (category !== "all") {
+      setCurrentSkus(skus?.filter((sku) => sku.category === current?.name));
+    } else {
+      skus && setCurrentSkus(skus);
+    }
   }, [skus, current]);
 
   return (
     <div className="item page">
-      <h1 className="page-title">{category && capitalize(category)}</h1>
+      <h1 className="page-title">
+        {category && capitalize(category)}
+      </h1>
       {currentSkus &&
         currentSkus.map((sku) => {
-          return (
-            <ItemCard sku={sku}/>
-          );
+          return <ItemCard sku={sku} />;
         })}
     </div>
   );

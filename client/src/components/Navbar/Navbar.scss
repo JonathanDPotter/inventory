@@ -4,8 +4,8 @@ nav {
   display: flex;
   height: 5vh;
   line-height: 5vh;
-  background-color: theme.$darkBackground;
-  color: theme.$lightText;
+  background-color: #71969F;
+  color: theme.$textColor;
 
   .menu-container {
     width: 60vw;
@@ -36,7 +36,7 @@ nav {
       }
       li {
         width: 100%;
-        border-top: 1px solid whitesmoke;
+        border-top: 1px solid theme.$textColor;;
       }
     }
 
@@ -47,7 +47,7 @@ nav {
     }
 
     .open {
-      background-color: darkred;
+      background-color: #F63940;
       visibility: visible;
       opacity: 1;
       transition: visibility 0s, opacity 0.3s linear;

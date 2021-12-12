@@ -49,7 +49,7 @@ const Navbar: FC<InavbarProps> = (props) => {
         </ul>
       </div>
       <div className="title-container">
-        <h1>Title</h1>
+        <h1>Fake Shop</h1>
       </div>
     </nav>
   );
