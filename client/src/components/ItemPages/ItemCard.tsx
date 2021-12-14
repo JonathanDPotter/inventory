@@ -3,11 +3,12 @@ import Isku from "../../interfaces/sku";
 
 interface IitemCardProps {
   sku: Isku;
+  key: String;
 }
 
 const ItemCard: FC<IitemCardProps> = ({ sku }) => {
   return (
-    <div className="item-card">
+    <div className="item-card" key={sku.id + "a"}>
       <img src={sku.image} alt={sku.name} />
       <div className="name-description">
         <h2>{sku.name}</h2>

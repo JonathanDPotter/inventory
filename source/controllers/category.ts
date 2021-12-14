@@ -58,6 +58,22 @@ const getCategory = (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
+const updateCategory = (req: Request, res: Response, next: NextFunction) => {
+  Category.findByIdAndUpdate(req.body.id)
+    .exec()
+    .then((result) => {
+      return res.status(200).json({
+        result,
+      });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        message: error.message,
+        error,
+      });
+    });
+};
+
 const deleteCategory = (req: Request, res: Response, next: NextFunction) => {
   Category.findByIdAndRemove(req.body.id)
     .exec()
@@ -78,5 +94,6 @@ export default {
   createCategory,
   getAllCategories,
   getCategory,
+  updateCategory,
   deleteCategory,
 };

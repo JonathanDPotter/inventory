@@ -26,16 +26,14 @@ const ItemPages: FC<IitemPagesProps> = ({ categories, skus }) => {
     } else {
       skus && setCurrentSkus(skus);
     }
-  }, [skus, current]);
+  }, [skus, category, current]);
 
   return (
     <div className="item page">
-      <h1 className="page-title">
-        {category && capitalize(category)}
-      </h1>
+      <h1 className="page-title">{category && capitalize(category)}</h1>
       {currentSkus &&
         currentSkus.map((sku) => {
-          return <ItemCard sku={sku} />;
+          return <ItemCard sku={sku} key={sku.id} />;
         })}
     </div>
   );
