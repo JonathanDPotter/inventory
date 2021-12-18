@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { capitalize } from "../../functions";
 // types
-import Icategory from "../../interfaces/category";
+import { Icategory } from "../../interfaces/category";
 
 interface Iitems {
   text: string;

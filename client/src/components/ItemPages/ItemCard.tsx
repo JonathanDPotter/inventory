@@ -1,14 +1,14 @@
 import React, { FC } from "react";
-import Isku from "../../interfaces/sku";
+import { Isku } from "../../interfaces/sku";
 
 interface IitemCardProps {
   sku: Isku;
-  key: String;
+  key: number;
 }
 
 const ItemCard: FC<IitemCardProps> = ({ sku }) => {
   return (
-    <div className="item-card" key={sku.id + "a"}>
+    <div className="item-card" key={sku.id}>
       <img src={sku.image} alt={sku.name} />
       <div className="name-description">
         <h2>{sku.name}</h2>

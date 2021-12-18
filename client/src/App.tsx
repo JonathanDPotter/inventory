@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { getCategories, getItems } from "./api";
+import { addCat, addSku } from "./store";
 // components
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
@@ -10,23 +12,21 @@ import { Icategory } from "./interfaces/category";
 import { Isku } from "./interfaces/sku";
 // styles
 import "./App.scss";
-import { getCategories, getItems } from "./api";
 // run once to fill database
 // import { fillDatabase } from "./fillDatabase";
 
 const App = () => {
-  const [categories, setCategories] = useState<Icategory[] | null>(null);
-  const [skus, setSkus] = useState<Isku[] | null>(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getItems);
     getCategories().then((response) => {
-      setCategories(response.data.categories);
+      const { categories } = response.data;
+      categories.forEach((category: Icategory) => dispatch(addCat(category)));
     });
 
     getItems().then((response) => {
-      setSkus(response.data.skus);
+      const { skus } = response.data;
+      skus.forEach((sku: Isku) => dispatch(addSku(sku)));
     });
 
     // run once to fill database
@@ -36,18 +36,11 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Navbar categories={categories && categories} />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/items/:category"
-            element={
-              <ItemPages
-                categories={categories && categories}
-                skus={skus && skus}
-              />
-            }
-          />
+          <Route path="/items/:category" element={<ItemPages />} />
+          <Route path="*" element={<h1 className="title">404 not found</h1>} />
         </Routes>
       </Router>
     </div>

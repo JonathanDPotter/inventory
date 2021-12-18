@@ -3,19 +3,20 @@ import React, { useState, FC } from "react";
 import MenuItem from "./MenuItem";
 import Submenu from "./Submenu";
 // types
-import Icategory from "../../interfaces/category";
+import { Icategory } from "../../interfaces/category";
 import "./Navbar.scss";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 
-interface InavbarProps {
-  categories: Icategory[] | null;
-}
-
-const Navbar: FC<InavbarProps> = (props) => {
+const Navbar: FC = () => {
   const [submenuOneOpen, setSubmenuOneOpen] = useState(false);
   const [submenuTwoOpen, setSubmenuTwoOpen] = useState(false);
   const [submenuThreeOpen, setSubmenuThreeOpen] = useState(false);
 
-  const { categories } = props;
+  const categories = useSelector<RootState, Icategory[]>(
+    (state) => state.categories.categories
+  );
+  
   return (
     <nav>
       <div className="menu-container">

@@ -1,19 +1,20 @@
 import React, { FC, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { capitalize } from "../../functions";
 // types
-import Icategory from "../../interfaces/category";
-import Isku from "../../interfaces/sku";
+import { Icategory } from "../../interfaces/category";
+import { Isku } from "../../interfaces/sku";
+import { RootState } from "../../store";
 import ItemCard from "./ItemCard";
 // styles
 import "./ItemPage.scss";
 
-interface IitemPagesProps {
-  categories: Icategory[] | null;
-  skus: Isku[] | null;
-}
-
-const ItemPages: FC<IitemPagesProps> = ({ categories, skus }) => {
+const ItemPages: FC = () => {
+  const skus = useSelector<RootState, Isku[]>((state) => state.skus.skus);
+  const categories = useSelector<RootState, Icategory[]>(
+    (state) => state.categories.categories
+  );
   const { category } = useParams();
   const current = categories?.find((cat) => cat.name === category);
   const [currentSkus, setCurrentSkus] = useState<Isku[] | null | undefined>(
@@ -32,8 +33,8 @@ const ItemPages: FC<IitemPagesProps> = ({ categories, skus }) => {
     <div className="item page">
       <h1 className="page-title">{category && capitalize(category)}</h1>
       {currentSkus &&
-        currentSkus.map((sku) => {
-          return <ItemCard sku={sku} key={sku.id} />;
+        currentSkus.map((sku, i) => {
+          return <ItemCard sku={sku} key={i} />;
         })}
     </div>
   );
