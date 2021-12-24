@@ -1,0 +1,83 @@
+@use "../../theme";
+
+.full-page {
+  min-height: 90vh;
+  width: 100w;
+}
+
+form {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 2rem;
+  background-color: theme.$lightBlueBackground;
+
+  .label-input {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    input,
+    textarea,
+    select {
+      width: 70%;
+      margin-bottom: 1rem;
+      background-color: inherit;
+      border: none;
+      resize: vertical;
+      border-bottom: 1px solid black;
+
+      &:focus {
+        outline: none;
+        background-color: rbga(255, 255, 255, 0.8);
+      }
+    }
+    .button {
+      width: 5rem;
+    }
+  }
+}
+
+.item-cards-container {
+  max-width: 80vw;
+  margin: 5vh auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  .item-card {
+    width: 20vw;
+    min-height: 20vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid theme.$textColor;
+
+    img {
+      object-fit: scale-down;
+      width: 3rem;
+      height: auto;
+    }
+    button {
+      width: 50%;
+      margin: 1rem 0;
+    }
+
+    p {
+      display: none;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    .onhand-price {
+      display: none;
+    }
+  }
+}

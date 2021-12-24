@@ -13,7 +13,13 @@
     display: flex;
     justify-content: space-around;
     height: fit-content;
-    margin-bottom: 3rem;
+    border-bottom: 1px solid theme.$textColor;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+
+    button {
+      display: none;
+    }
 
     img {
       object-fit: scale-down;

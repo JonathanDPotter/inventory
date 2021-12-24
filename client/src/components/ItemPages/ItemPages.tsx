@@ -6,7 +6,7 @@ import { capitalize } from "../../functions";
 import { Icategory } from "../../interfaces/category";
 import { Isku } from "../../interfaces/sku";
 import { RootState } from "../../store";
-import ItemCard from "./ItemCard";
+import ItemCard from "../ItemCard/ItemCard";
 // styles
 import "./ItemPage.scss";
 

@@ -80,7 +80,8 @@ const updateSku = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const deleteSku = (req: Request, res: Response, next: NextFunction) => {
-  Sku.findByIdAndRemove(req.body.id)
+  console.log(`delete Id: ${req.body.id}`)
+  Sku.findOneAndDelete({ _id: req.body.id })
     .exec()
     .then((result) => {
       return res.status(200).json({

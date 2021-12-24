@@ -11,9 +11,10 @@ interface IsubmenuProps {
   open: boolean;
   categories?: Icategory[] | null;
   items?: Iitems[];
+  title?: String;
 }
 
-const Submenu: FC<IsubmenuProps> = ({ open, categories, items }) => {
+const Submenu: FC<IsubmenuProps> = ({ open, categories, items, title }) => {
   return (
     <ul className={`sub-menu ${open ? "open" : "closed"}`}>
       {categories &&
@@ -29,8 +30,8 @@ const Submenu: FC<IsubmenuProps> = ({ open, categories, items }) => {
         items.map((item, i) => {
           const { text } = item;
           return (
-            <a href={`/contact/${text}`} key={i}>
-              <li className="submenu-item">{text}</li>
+            <a href={`/${title}/${text}`} key={i}>
+              <li className="submenu-item">{capitalize(text)}</li>
             </a>
           );
         })}

@@ -195,19 +195,21 @@ export const fillDatabase = () => {
       },
     ],
   };
-  data.categories.forEach((category) => {
-    fetch("/api/categories/create/category", {
-      method: "post",
-      body: JSON.stringify({ name: category }),
-      headers: new Headers({ "Content-Type": "application/json" }),
-    });
-  });
+  // data.categories.forEach((category) => {
+  //   fetch("/api/categories/create/category", {
+  //     method: "post",
+  //     body: JSON.stringify({ name: category }),
+  //     headers: new Headers({ "Content-Type": "application/json" }),
+  //   });
+  // });
   data.items.forEach((item) => {
-    fetch("/api/skus/create/sku", {
-      method: "post",
+    fetch("http://localhost:1337/api/skus/create/sku", {
+      method: "POST",
       body: JSON.stringify(item),
       headers: new Headers({ "Content-Type": "application/json" }),
-    });
+    })
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
   });
 };
 

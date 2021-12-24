@@ -34,10 +34,11 @@ const Navbar: FC = () => {
             onMouseEnter={() => setSubmenuTwoOpen(true)}
             onMouseLeave={() => setSubmenuTwoOpen(false)}
           >
-            <MenuItem open={submenuTwoOpen} text="Contact" />
+            <MenuItem open={submenuTwoOpen} text="Add/Delete" />
             <Submenu
               open={submenuTwoOpen}
-              items={[{ text: "Phone" }, { text: "E-mail" }]}
+              title="add-delete"
+              items={[{ text: "add" }, { text: "delete" }]}
             />
           </li>
           <li
