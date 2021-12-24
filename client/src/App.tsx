@@ -9,6 +9,7 @@ import Home from "./components/Home/Home";
 import ItemPages from "./components/ItemPages/ItemPages";
 import AddItem from "./components/AddDelete/AddItem";
 import DeleteItem from "./components/AddDelete/DeleteItem";
+import ItemEdit from "./components/ItemEdit/ItemEdit";
 // types
 import { Icategory } from "./interfaces/category";
 import { Isku } from "./interfaces/sku";
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/items/:category" element={<ItemPages />} />
           <Route path="/add-delete/add" element={<AddItem />} />
           <Route path="/add-delete/delete" element={<DeleteItem />} />
+          <Route path="/edit/:edit" element={<ItemEdit />} />
           <Route path="*" element={<h1 className="title">404 not found</h1>} />
         </Routes>
       </Router>
