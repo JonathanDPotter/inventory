@@ -25,7 +25,7 @@ const ItemCard: FC<IitemCardProps> = ({ sku, rerender }) => {
     <div className="item-card">
       <img src={sku.image} alt={sku.name} />
       <button onClick={deleteItemCall} className="delete">
-        delete{" "}
+        delete
       </button>
       <div className="name-description">
         <h2>{sku.name}</h2>

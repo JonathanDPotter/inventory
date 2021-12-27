@@ -9,8 +9,8 @@ import { InewSku, IupdateSku, IdeleteSku } from "../interfaces/sku";
 
 const host = process.env.HOST || "http://localhost:1337";
 
-
-export const getCategories = () => axios.get(host + "/api/categories/get/categories");
+export const getCategories = () =>
+  axios.get(host + "/api/categories/get/categories");
 
 export const createCategory = (newCat: InewCategory) =>
   axios.post(host + "api/categories/create/category", newCat);
@@ -32,8 +32,14 @@ export const createItem = (newSku: InewSku) =>
     .then((response) => console.log(response))
     .catch((error) => console.error(error));
 
-export const updateItem = (update: IupdateSku) =>
-  axios.post(host + "/api/skus/update/sku", update);
+export const updateItem = (id: string, update: IupdateSku) =>
+  fetch(host + "/api/skus/update/sku", {
+    method: "POST",
+    body: JSON.stringify({ update, id }),
+    headers: new Headers({ "Content-Type": "application/json" }),
+  })
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error));
 
 export const deleteItem = (toDelete: IdeleteSku) =>
   axios.post(host + "/api/skus/delete/sku", toDelete);

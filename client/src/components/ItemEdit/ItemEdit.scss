@@ -1,3 +1,22 @@
-img {
-  max-height: 30vh;
+.item-card {
+  form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      max-height: 30vh;
+      width: 10rem;
+    }
+
+    label {
+      float: left;
+      margin-right: 1rem;
+    }
+
+    input, textarea, select {
+      float: right;
+      width: 80%;
+    }
+  }
 }

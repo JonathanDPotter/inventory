@@ -15,6 +15,7 @@ import { Icategory } from "./interfaces/category";
 import { Isku } from "./interfaces/sku";
 // styles
 import "./App.scss";
+import About from "./components/About/About";
 // run once to fill database
 // import { fillDatabase } from "./fillDatabase";
 
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/add-delete/add" element={<AddItem />} />
           <Route path="/add-delete/delete" element={<DeleteItem />} />
           <Route path="/edit/:edit" element={<ItemEdit />} />
+          <Route path="/about/about" element={<About />} />
           <Route path="*" element={<h1 className="title">404 not found</h1>} />
         </Routes>
       </Router>

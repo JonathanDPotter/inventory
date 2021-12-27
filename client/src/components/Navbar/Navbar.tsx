@@ -16,7 +16,7 @@ const Navbar: FC = () => {
   const categories = useSelector<RootState, Icategory[]>(
     (state) => state.categories.categories
   );
-  
+
   return (
     <nav>
       <div className="menu-container">
@@ -47,11 +47,16 @@ const Navbar: FC = () => {
             onMouseLeave={() => setSubmenuThreeOpen(false)}
           >
             <MenuItem open={submenuThreeOpen} text="About" />
+            <Submenu
+              open={submenuThreeOpen}
+              title="About"
+              items={[{ text: "About" }]}
+            />
           </li>
         </ul>
       </div>
       <div className="title-container">
-        <h1>Fake Shop</h1>
+        <h1>Inventory</h1>
       </div>
     </nav>
   );

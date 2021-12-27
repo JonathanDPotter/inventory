@@ -64,6 +64,7 @@ const getSku = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const updateSku = (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.body);
   Sku.findByIdAndUpdate(req.body.id, req.body.update)
     .exec()
     .then((result) => {

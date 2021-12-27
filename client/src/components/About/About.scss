@@ -1,0 +1,14 @@
+.full-page {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  h1 {
+    margin: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router";
 import { createItem } from "../../api";
 // types
 import { InewSku } from "../../interfaces/sku";
@@ -6,7 +7,8 @@ import { InewSku } from "../../interfaces/sku";
 import "./AddDelete.scss";
 
 const AddItem = () => {
-  const [category, setCategory] = useState("Electronics");
+  const navigate = useNavigate();
+  const [category, setCategory] = useState("electronics");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
@@ -56,13 +58,12 @@ const AddItem = () => {
       image,
     };
 
-    console.log(newSku);
-
     createItem(newSku).catch((error) => {
       if (error) {
         window.alert(error);
       }
     });
+    navigate(0);
   };
 
   return (
