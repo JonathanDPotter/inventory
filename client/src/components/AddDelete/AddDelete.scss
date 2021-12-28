@@ -3,6 +3,7 @@
 .full-page {
   min-height: 90vh;
   width: 100w;
+  margin-top: 5vh;
 }
 
 form {
@@ -49,7 +50,10 @@ form {
   flex-wrap: wrap;
 
   .item-card {
-    width: 20vw;
+    width: 40vw;
+    @media screen and (min-width: 500px) {
+      width: 20vw;
+    }
     min-height: 20vh;
     padding: 1rem;
     display: flex;

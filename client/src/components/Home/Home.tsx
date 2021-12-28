@@ -1,12 +1,14 @@
-import React from 'react'
-import "./Home.scss"
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const Home = () => {
-  return (
-    <div className="home page">
-      <h1 className="title">Home Page</h1>
-    </div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Home
+  useEffect(() => {
+    navigate("/items/all");
+  }, [navigate]);
+
+  return <></>;
+};
+
+export default Home;

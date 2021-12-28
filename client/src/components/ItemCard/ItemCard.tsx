@@ -13,7 +13,9 @@ const ItemCard: FC<IitemCardProps> = ({ sku, rerender }) => {
   const navigate = useNavigate();
 
   const deleteItemCall = () => {
-    deleteItem({ id: sku._id });
+    if (window.confirm(`Delete ${sku.name}?`)) {
+      deleteItem({ id: sku._id });
+    }
     rerender();
   };
 

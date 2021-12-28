@@ -1,8 +1,12 @@
 @use "../../theme";
 
 nav {
+  position: fixed;
   display: flex;
+  top: 0;
+  left: 0;
   height: 5vh;
+  width: 100%;
   line-height: 5vh;
   background-color: theme.$lightBlueBackground;
 
@@ -35,7 +39,7 @@ nav {
       }
       li {
         width: 100%;
-        border-top: 1px solid theme.$textColor;;
+        border-top: 1px solid theme.$textColor;
       }
     }
 
@@ -46,7 +50,7 @@ nav {
     }
 
     .open {
-      background-color: #F63940;
+      background-color: #f63940;
       visibility: visible;
       opacity: 1;
       transition: visibility 0s, opacity 0.3s linear;

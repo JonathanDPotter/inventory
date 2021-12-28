@@ -7,5 +7,10 @@
   box-sizing: border-box;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: theme.$textColor;
-}
+  overflow-x: hidden;
+  font-size: 0.8rem;
 
+  @media screen and (min-width: 500px) {
+    font-size: 1rem;
+  }
+}
