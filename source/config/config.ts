@@ -25,17 +25,20 @@ const MONGO = {
   url: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`,
 };
 
-const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || "localhost";
-const SERVER_PORT = process.env.SERVER_PORT || 1337;
+const SERVER_HOSTNAME = process.env.HOST || "localhost";
+const SERVER_PORT = process.env.PORT || 1337;
 
 const SERVER = {
   hostname: SERVER_HOSTNAME,
   port: SERVER_PORT,
 };
 
+const NODE_ENV = process.env.NODE_ENV || "development"; 
+
 const config = {
   server: SERVER,
   mongo: MONGO,
+  env: NODE_ENV,
 };
 
 export default config;

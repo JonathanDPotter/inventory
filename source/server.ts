@@ -1,11 +1,12 @@
 import http from "http";
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import logging from "./config/logging";
 import config from "./config/config";
 import skuRoutes from "./routes/sku";
 import categoryRoutes from "./routes/category";
+import path from "path";
 
 const NAMESPACE = "Server";
 const router = express();
@@ -21,7 +22,7 @@ mongoose
   });
 
 // logging the request
-router.use((req, res, next) => {
+router.use((req: Request, res: Response, next: NextFunction) => {
   logging.info(
     NAMESPACE,
     `METHOD - [${req.method}], URL - [${req.url}], IP - [${req.socket.remoteAddress}]`
@@ -41,20 +42,13 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 // api rules
-router.use((req, res, next) => {
+router.use((req: Request, res: Response, next: NextFunction) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
 
-  // if (req.method === "OPTIONS") {
-  //   res.header(
-  //     "Access-Control-Allow-Methods",
-  //     "GET PATCH DELETE POST PUT OPTIONS"
-  //   );
-  //   return res.status(200).json();
-  // }
   next();
 });
 
@@ -63,13 +57,22 @@ router.use("/api/skus", skuRoutes);
 router.use("/api/categories", categoryRoutes);
 
 // error handling
-router.use((req, res, next) => {
+router.use((req: Request, res: Response, next: NextFunction) => {
   const error = new Error("not found");
 
   return res.status(404).json({
     message: error.message,
   });
 });
+
+// serve static files if in production
+if (config.env === "production") {
+  router.use(express.static("client/build"));
+
+  router.get("*", (req: Request, res: Response) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 // create server
 const httpServer = http.createServer(router);

@@ -4,12 +4,12 @@
   "description": "Odin Project inventory project",
   "main": "source/server.ts",
   "scripts": {
-    "populate": "node populateDb.ts",
     "client-install": "cd client && npm install",
     "start": "cd source && node server.ts",
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,8 @@
     "@types/mongoose": "^5.11.97",
     "@types/react-router-dom": "^5.3.2",
     "ts-node": "^10.4.0"
+  },
+  "engines": {
+    "node": "16.13.1"
   }
 }
