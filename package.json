@@ -5,10 +5,11 @@
   "main": "source/server.ts",
   "scripts": {
     "client-install": "cd client && npm install",
-    "start": "cd source && node server.ts",
+    "start": "node source/server.js",
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postinstall": "tsc",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
@@ -22,20 +23,17 @@
   },
   "homepage": "https://github.com/JonathanDPotter/inventory#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "concurrently": "^6.4.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^6.0.14",
-    "react-router-dom": "^6.2.1"
-  },
-  "devDependencies": {
-    "@types/body-parser": "^1.19.2",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",
     "@types/mongoose": "^5.11.97",
     "@types/react-router-dom": "^5.3.2",
-    "ts-node": "^10.4.0"
+    "concurrently": "^6.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.14",
+    "react-router-dom": "^6.2.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   },
   "engines": {
     "node": "16.13.1"
