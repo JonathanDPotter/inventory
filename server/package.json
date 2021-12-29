@@ -4,10 +4,10 @@
   "description": "Odin Project inventory project",
   "main": "source/server.ts",
   "scripts": {
-    "client-install": "cd client && npm install",
+    "client-install": "cd .. && cd client && npm install",
     "start": "node source/server.js",
     "server": "cd source && nodemon server.ts",
-    "client": "cd client && npm start",
+    "client": "cd .. && cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "postinstall": "tsc",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
