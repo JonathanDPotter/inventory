@@ -1,0 +1,6 @@
+  // old scripts
+  // "client-install": "cd .. && cd client && npm install",
+  // "start": "ts-node source/server.ts",
+  // "server": "cd source && nodemon server.ts",
+  // "client": "cd client && npm start",
+  // "dev": "concurrently \"npm run server\" \"npm run client\""
