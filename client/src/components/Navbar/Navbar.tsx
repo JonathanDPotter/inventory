@@ -14,7 +14,7 @@ const Navbar: FC = () => {
   const [submenuThreeOpen, setSubmenuThreeOpen] = useState(false);
 
   const categories = useSelector<RootState, Icategory[]>(
-    (state) => state.categories.categories
+    (state: RootState) => state.categories.categories
   );
 
   return (

@@ -13,7 +13,7 @@ import "./ItemPage.scss";
 const ItemPages: FC = () => {
   const skus = useSelector<RootState, Isku[]>((state) => state.skus.skus);
   const categories = useSelector<RootState, Icategory[]>(
-    (state) => state.categories.categories
+    (state: RootState) => state.categories.categories
   );
   const { category } = useParams();
   const current = categories?.find((cat) => cat.name === category);

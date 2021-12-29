@@ -20,7 +20,7 @@ export const skuSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    addSku: (state, action: PayloadAction<Isku>) => {
+    addSku: (state: IskuSliceState, action: PayloadAction<Isku>) => {
       state.skus = [...state.skus, action.payload];
     },
   },
@@ -39,7 +39,7 @@ export const catSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState: catInitialState,
   reducers: {
-    addCat: (state, action: PayloadAction<Icategory>) => {
+    addCat: (state: IcatSliceState, action: PayloadAction<Icategory>) => {
       state.categories = [...state.categories, action.payload];
     },
   },
