@@ -5,11 +5,10 @@
   "main": "source/server.ts",
   "scripts": {
     "client-install": "cd .. && cd client && npm install",
-    "start": "node source/server.js",
+    "start": "ts-node source/server.ts",
     "server": "cd source && nodemon server.ts",
     "client": "cd .. && cd client && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
