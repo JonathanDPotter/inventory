@@ -63,7 +63,7 @@ const AddItem = () => {
         window.alert(error);
       }
     });
-    navigate("0");
+    navigate(0);
   };
 
   return (
