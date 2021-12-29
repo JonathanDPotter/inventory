@@ -37,6 +37,5 @@
   },
   "engines": {
     "node": "16.13.1"
-  },
-  "type": "module"
+  }
 }
