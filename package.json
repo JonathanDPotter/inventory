@@ -9,8 +9,7 @@
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postinstall": "npm run tsc", 
-    "tsc": "tsc"
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
