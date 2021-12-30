@@ -4,8 +4,7 @@
   "description": "Odin Project inventory project",
   "main": "source/server.ts",
   "scripts": {
-    "start": "node dist/source/server.js",
-    "postinstall": "tsc --jsx react"
+    "start": "node dist/source/server.js"
   },
   "repository": {
     "type": "git",
