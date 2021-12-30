@@ -5,7 +5,7 @@
   "main": "source/server.ts",
   "scripts": {
     "start": "node dist/source/server.js",
-    "postinstall": "tsc"
+    "postinstall": "tsc --jsx"
   },
   "repository": {
     "type": "git",
