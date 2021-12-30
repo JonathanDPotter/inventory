@@ -67,10 +67,10 @@ router.use((req: Request, res: Response, next: NextFunction) => {
 
 // serve static files if in production
 if (config.env === "production") {
-  router.use(express.static("client/build"));
+  router.use(express.static(path.join("client/build")));
 
   router.get("*", (req: Request, res: Response) => {
-    res.sendFile(path.resolve(__dirname, "/client/build", "index.html"));
+    res.sendFile(path.join("client/build/index.html"));
   });
 }
 
