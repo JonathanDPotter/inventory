@@ -5,7 +5,7 @@
   "main": "source/server.ts",
   "scripts": {
     "client-install": "cd client && npm install",
-    "start": "ts-node source/server.ts",
+    "start": "node dist/source/server.js",
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
