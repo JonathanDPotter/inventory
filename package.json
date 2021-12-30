@@ -8,8 +8,7 @@
     "start": "node dist/source/server.js",
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postinstall": "tsc"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
