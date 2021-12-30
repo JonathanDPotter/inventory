@@ -67,7 +67,6 @@ router.use((req: Request, res: Response, next: NextFunction) => {
 
 // serve static files if in production
 if (config.env === "production") {
-  console.log("in production now");
   router.use(express.static("client/build"));
 
   router.get("*", (req: Request, res: Response) => {
