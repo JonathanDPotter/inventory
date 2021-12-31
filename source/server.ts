@@ -67,15 +67,10 @@ router.use("/api/categories", categoryRoutes);
 
 // serve static files if in production
 if (process.env.NODE_ENV === "production") {
+
   router.use(express.static("client/build"));
-  
-  router.get("/items/all", (req: Request, res: Response) => {
-    res.sendFile(
-      path.resolve(__dirname, "..", "client", "build", "index.html")
-    );
-  });
-  
-  router.get("/*", (req: Request, res: Response) => {
+
+  router.get("*", (req: Request, res: Response) => {
     res.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
     );
