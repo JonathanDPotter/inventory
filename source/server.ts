@@ -56,18 +56,8 @@ router.use((req: Request, res: Response, next: NextFunction) => {
 router.use("/api/skus", skuRoutes);
 router.use("/api/categories", categoryRoutes);
 
-// error handling
-// router.use((req: Request, res: Response, next: NextFunction) => {
-//   const error = new Error("not found");
-
-//   return res.status(404).json({
-//     message: error.message,
-//   });
-// });
-
 // serve static files if in production
 if (process.env.NODE_ENV === "production") {
-
   router.use(express.static("client/build"));
 
   router.get("*", (req: Request, res: Response) => {
@@ -75,8 +65,16 @@ if (process.env.NODE_ENV === "production") {
       path.resolve(__dirname, "..", "client", "build", "index.html")
     );
   });
-
 }
+
+// error handling
+router.use((req: Request, res: Response, next: NextFunction) => {
+  const error = new Error("not found");
+
+  return res.status(404).json({
+    message: error.message,
+  });
+});
 
 // create server
 const httpServer = http.createServer(router);
