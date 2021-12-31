@@ -57,21 +57,22 @@ router.use("/api/skus", skuRoutes);
 router.use("/api/categories", categoryRoutes);
 
 // error handling
-router.use((req: Request, res: Response, next: NextFunction) => {
-  const error = new Error("not found");
+// router.use((req: Request, res: Response, next: NextFunction) => {
+//   const error = new Error("not found");
 
-  return res.status(404).json({
-    message: error.message,
-  });
-});
+//   return res.status(404).json({
+//     message: error.message,
+//   });
+// });
 
 // serve static files if in production
-if (config.env === "production") {
-  router.use(express.static(path.join(__dirname, "..", "client", "build")));
+if (config.env) {
+  router.use(express.static("client/build"));
 
-  router.get("/", (req: Request, res: Response) => {
-    console.log(path.join(__dirname, "..", "client", "build"));
-    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+  router.get("*", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
   });
 }
 
