@@ -4,12 +4,11 @@
   "description": "Odin Project inventory project",
   "main": "source/server.ts",
   "scripts": {
-    "client-build": "cd .. && cd client && npm run build",
     "start": "node dist/source/server.js",
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postinstall": "tsc && client-build"
+    "postinstall": "tsc && cd .. && cd client && npm run build"
   },
   "repository": {
     "type": "git",
