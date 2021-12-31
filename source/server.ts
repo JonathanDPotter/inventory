@@ -70,6 +70,7 @@ if (config.env === "production") {
   router.use(express.static(path.join(__dirname, "..", "client", "build")));
 
   router.get("/", (req: Request, res: Response) => {
+    console.log(path.join(__dirname, "..", "client", "build"));
     res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
   });
 }
