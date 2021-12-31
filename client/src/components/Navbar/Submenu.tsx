@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router";
 import { capitalize } from "../../functions";
 // types
 import { Icategory } from "../../interfaces/category";
@@ -15,24 +16,32 @@ interface IsubmenuProps {
 }
 
 const Submenu: FC<IsubmenuProps> = ({ open, categories, items, title }) => {
+  const navigate = useNavigate();
   return (
     <ul className={`sub-menu ${open ? "open" : "closed"}`}>
       {categories &&
         categories.map((category, i) => {
           const { name } = category;
           return (
-            <a href={`/items/${name}`} key={i}>
-              <li className="submenu-item">{capitalize(name)}</li>
-            </a>
+            <li
+              className="submenu-item"
+              onClick={() => navigate(`/items/${name}`)}
+            >
+              {capitalize(name)}
+            </li>
           );
         })}
       {items &&
         items.map((item, i) => {
           const { text } = item;
           return (
-            <a href={`/${title}/${text}`} key={i}>
-              <li className="submenu-item">{capitalize(text)}</li>
-            </a>
+            <li
+              className="submenu-item"
+              key={i}
+              onClick={() => navigate(`/${title}/${text}`)}
+            >
+              {capitalize(text)}
+            </li>
           );
         })}
       {categories && (
