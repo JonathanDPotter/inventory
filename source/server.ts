@@ -2,11 +2,13 @@ import http from "http";
 import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import path from "path";
+// functions/variables
 import logging from "./config/logging";
 import config from "./config/config";
+// routes
 import skuRoutes from "./routes/sku";
 import categoryRoutes from "./routes/category";
-import path from "path";
 
 const NAMESPACE = "Server";
 const router = express();
