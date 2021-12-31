@@ -18,7 +18,7 @@ mongoose
     logging.info(NAMESPACE, "Connected to mongoDB!");
   })
   .catch((error) => {
-    logging.error(NAMESPACE, error.message);
+    logging.error(NAMESPACE, error.message, error);
   });
 
 // logging the request
@@ -69,7 +69,7 @@ router.use("/api/categories", categoryRoutes);
 if (config.env === "production") {
   router.use(express.static("client/build"));
 
-  router.get("*", (req: Request, res: Response) => {
+  router.get("/*", (req: Request, res: Response) => {
     res.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
     );
