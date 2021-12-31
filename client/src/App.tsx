@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <div>
-      <Router basename="https://whispering-oasis-61591.herokuapp.com/">
+      <Router basename="/">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
