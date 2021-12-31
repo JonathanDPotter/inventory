@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <div>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router >
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
