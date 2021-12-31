@@ -33,7 +33,7 @@ const SERVER = {
   port: SERVER_PORT,
 };
 
-const NODE_ENV = process.env.NODE_ENV || "development"; 
+const NODE_ENV = process.env.NODE_ENV || "development";
 
 const config = {
   server: SERVER,

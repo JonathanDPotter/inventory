@@ -8,7 +8,7 @@
     "server": "cd source && nodemon server.ts",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postinstall": "tsc && cd .. && cd client && npm run build"
+    "postinstall": "tsc && cd client && npm run build"
   },
   "repository": {
     "type": "git",
