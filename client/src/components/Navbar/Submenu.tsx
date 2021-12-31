@@ -44,11 +44,7 @@ const Submenu: FC<IsubmenuProps> = ({ open, categories, items, title }) => {
             </li>
           );
         })}
-      {categories && (
-        <a href="/items/all">
-          <li> All Items</li>
-        </a>
-      )}
+      {categories && <li onClick={() => navigate("items/all")}> All Items</li>}
     </ul>
   );
 };
