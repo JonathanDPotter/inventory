@@ -66,15 +66,11 @@ router.use("/api/categories", categoryRoutes);
 // });
 
 // serve static files if in production
-if (config.env === "production") {
-  router.use(express.static("client/build"));
+router.use(express.static("client/build"));
 
-  router.get("*", (req: Request, res: Response) => {
-    res.sendFile(
-      path.resolve(__dirname, "..", "client", "build", "index.html")
-    );
-  });
-}
+router.get("*", (req: Request, res: Response) => {
+  res.sendFile(path.resolve(__dirname, "..", "client", "build", "index.html"));
+});
 
 // create server
 const httpServer = http.createServer(router);
