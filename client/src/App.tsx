@@ -42,11 +42,11 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="items/:category" element={<ItemPages />} />
-        <Route path="add-delete/add" element={<AddItem />} />
-        <Route path="add-delete/delete" element={<DeleteItem />} />
-        <Route path="edit/:edit" element={<ItemEdit />} />
-        <Route path="about/about" element={<About />} />
+        <Route path="/items/:category" element={<ItemPages />} />
+        <Route path="/add-delete/add" element={<AddItem />} />
+        <Route path="/add-delete/delete" element={<DeleteItem />} />
+        <Route path="/edit/:edit" element={<ItemEdit />} />
+        <Route path="/about/about" element={<About />} />
         <Route path="*" element={<h1 className="title">404 not found</h1>} />
       </Routes>
     </Router>
