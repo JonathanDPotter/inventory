@@ -62,6 +62,42 @@ router.use("/api/categories", categoryRoutes);
 if (process.env.NODE_ENV === "production") {
   router.use(express.static("client/build"));
 
+  router.get("/items/:category", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+
+  router.get("/add-delete/add", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+
+  router.get("/add-delete/delete", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+
+  router.get("/edit/:edit", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+
+  router.get("/about/about", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+
+  router.get("/*", (req: Request, res: Response) => {
+    res.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+
   router.get("*", (req: Request, res: Response) => {
     res.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
